@@ -1,26 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
 
-    <div> 
-        <label>Country</label>
-        <input type="text">
-        <button type="submit">Buscar</button>
+    <header class="header_class"> <!-- logo + barra de busqueda con el boton-->
+        <img src="" alt="">
+        <div class="finder">
+            <input type="text" placeholder="Ingresa la ciudad">
+            <button type="submit">Buscar</button>
+        </div>
+    </header>
+
+    <div class="showroom_app">
+
+        <div class="container_app"> <!-- App de despliegue del clima (indi)-->
+
+            <img class="icon" alt="">
+            <p class="city_name">Ciudad</p>
+            <p class="temperature">Temperatura</p>
+            <div class="humidity_wind">
+                <p class="humidity"> Humedad</p>
+                <p class="wind"> Viento </p>
+            </div>
+
+        </div>
+
+        <div class="container_chart">
+
+            <canvas id="myChart"></canvas>
+
+        </div>
+
     </div>
-    <div>
-        <h3></h3>
-        <p class="parrafo"></p>
-    </div>
-    <div>
-        <canvas id="myChart"></canvas>
-      </div>
-      
+
+    <footer class="footer_class">
+
+    </footer>
+
+
     <script src="script.js" type="module"> </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </body>
+
 </html>

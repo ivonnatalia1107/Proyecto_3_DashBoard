@@ -1,0 +1,61 @@
+* {
+    margin: 0px;
+}
+
+.header_class {
+    display: flex;
+    border: 1px solid black;
+    height: 80px;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+.showroom_app {
+    display: flex;
+    border: 1px solid black;
+    height: 80vh;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.container_app {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    height: 80%;
+    width: 40%;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+
+.container_app .humidity_wind {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+.container_chart {
+    display: flex;
+    border: 1px solid black;
+    height: 50%;
+    width: 40%;
+
+
+}
+
+.footer_class {
+    display: flex;
+    border: 1px solid black;
+    height: 80px;
+    width: 100%;
+
+}
