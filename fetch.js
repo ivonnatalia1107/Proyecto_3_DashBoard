@@ -18,6 +18,13 @@ export async function checkWeather(city) {
     console.log(data.main.temp_min)
  //   console.log(data.weather[0].id) probando imagen
 
+    let iconCode = data.weather[0].icon;
+    let iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
+    displayIcon.src = iconUrl;
+
+    let cityName = document.querySelector('.city_name');
+    cityName.innerHTML = `${city}`;
+
 
 }
 

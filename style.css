@@ -1,10 +1,17 @@
 * {
     margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: rgb(36,99,108);
+    background: linear-gradient(0deg, rgba(36,99,108,1) 0%, rgba(2,4,17,1) 100%);
+
 }
 
 .header_class {
     display: flex;
-    border: 1px solid black;
+    border: 1px solid white;
     height: 80px;
     width: 100%;
     align-items: center;
@@ -12,10 +19,31 @@
 
 }
 
+.header_class h1 {
+    color: white;
+}
+
+.city_name {
+    color: white;
+}
+
+.temperature {
+    color: white;
+}
+
+.humidity_wind p{
+    color: white;
+}
+
+.icon {
+    height: 80px;
+    width: 80px;
+}
+
 
 .showroom_app {
     display: flex;
-    border: 1px solid black;
+    border: 1px solid white;
     height: 80vh;
     width: 100%;
     align-items: center;
@@ -26,7 +54,7 @@
 .container_app {
     display: flex;
     flex-direction: column;
-    border: 1px solid black;
+    border: 1px solid white;
     height: 80%;
     width: 40%;
     border-radius: 10px;
@@ -45,7 +73,7 @@
 
 .container_chart {
     display: flex;
-    border: 1px solid black;
+    border: 1px solid white;
     height: 50%;
     width: 40%;
 
@@ -54,7 +82,7 @@
 
 .footer_class {
     display: flex;
-    border: 1px solid black;
+    border: 1px solid white;
     height: 80px;
     width: 100%;
 
