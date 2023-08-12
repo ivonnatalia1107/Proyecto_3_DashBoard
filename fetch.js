@@ -4,7 +4,7 @@ const apiKey = "0087de59eceafec6ae96f68244d45721";
 const searchBox = document.querySelector('input');
 const searchBtn = document.querySelector('button');
 const displayTemperature = document.querySelector('.temperature');
-const displayIcon = document.querySelector('.icon')
+const iconWeather = document.querySelector ('.icon_weather')
 
 export async function checkWeather(city) {
 
@@ -18,9 +18,21 @@ export async function checkWeather(city) {
     console.log(data.main.temp_min)
  //   console.log(data.weather[0].id) probando imagen
 
-    let iconCode = data.weather[0].icon;
-    let iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
-    displayIcon.src = iconUrl;
+    if (data.weather[0].main === "Clouds") {
+        iconWeather.src = "images/clouds.png";
+    } 
+    else if (data.weather[0].main === "Clear") {
+        iconWeather.src = "images/clear.png";
+    } 
+    else if (data.weather[0].main === "Rain") {
+        iconWeather.src = "images/rain.png";
+    }
+    else if (data.weather[0].main === "Drizzle") {
+        iconWeather.src = "images/drizzle.png";
+    }
+    else if (data.weather[0].main === "Mist") {
+        iconWeather.src = "images/mist.png";
+    }
 
     let cityName = document.querySelector('.city_name');
     cityName.innerHTML = `${city}`;

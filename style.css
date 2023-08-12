@@ -1,5 +1,7 @@
 * {
-    margin: 0px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -35,9 +37,9 @@ body {
     color: white;
 }
 
-.icon {
-    height: 80px;
-    width: 80px;
+.icon_weather {
+    height: 150px;
+    width: 150px;
 }
 
 
