@@ -8,9 +8,15 @@ const displayIconWeather = document.querySelector('.icon_weather');
 const displayHumidity = document.querySelector('.humidity');
 const displayWind = document.querySelector('.wind');
 
+
 export async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json()
+
+    if (data.cod === "404") {
+        alert("Ciudad no encontrada.");
+    } else
+
     displayTemperature.innerHTML = "Temperatura:" + " " + data.main.temp + "°C";
     console.log("Temperatura promedio:" + " " + data.main.temp)
     displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
@@ -59,7 +65,7 @@ export async function checkWeather(city) {
                 backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
                 borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
                 color: 'rgb (255, 255, 255)',
-                borderWidth: 1
+                borderWidth: 1,
             }]
         },
         options: {
@@ -88,15 +94,15 @@ export async function checkWeather(city) {
             }
         }
     });
+
 }
 
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
     console.log('Displaying the weather of:' + ' ' + searchBox.value)
 
+
 })
-
-
 
 searchBox.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
