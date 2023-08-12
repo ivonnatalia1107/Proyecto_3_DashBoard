@@ -42,6 +42,10 @@ body {
     width: 150px;
 }
 
+.humidity_wind img{
+    height: 50px;
+    width: 50px;
+}
 
 .showroom_app {
     display: flex;
