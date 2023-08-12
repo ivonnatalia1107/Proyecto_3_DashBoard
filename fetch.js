@@ -13,8 +13,8 @@ export async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json()
 
-    if (data.cod === "404") {
-        alert("Ciudad no encontrada.");
+    if (data.cod === "404" || !city ) {
+        alert("Por favor, ingresa un parametro valido");
     } else
 
     displayTemperature.innerHTML = "Temperatura:" + " " + data.main.temp + "°C";
@@ -94,7 +94,7 @@ export async function checkWeather(city) {
             }
         }
     });
-
+    searchBox.value = ""
 }
 
 searchBtn.addEventListener("click", () => {
