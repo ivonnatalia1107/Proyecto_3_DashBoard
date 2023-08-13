@@ -17,13 +17,12 @@ export async function checkWeather(city) {
         alert("Por favor, ingresa un parametro valido");
     } else
 
-    displayTemperature.innerHTML = "Temperatura:" + " " + data.main.temp + "°C";
-    console.log("Temperatura promedio:" + " " + data.main.temp)
+    displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
+    console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
     displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
     console.log("Humedad:" + " " + data.main.humidity)
     displayWind.innerHTML = "Viento:" + " " + data.wind.speed + " " + "km/hr";
     console.log("Viento:" + " " + data.wind.speed)
-    console.log(data)
     console.log("Desplegando grafico comparativo de:")
     console.log("Temperatura promedio:" + " " + data.main.temp)
     console.log("Temperatura minima:" + " " + data.main.temp_max)
@@ -90,8 +89,18 @@ export async function checkWeather(city) {
                     labels: {
                         color: 'white' // Color blanco para las etiquetas de la leyenda
                     }
+                },
+                tooltip: {
+                    callbacks: {
+                        afterLabel: function(context) {
+                            return '°C'
+                        }
+                        
+                    }
+
                 }
             }
+            
         }
     });
     searchBox.value = ""
@@ -99,7 +108,8 @@ export async function checkWeather(city) {
 
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
-    console.log('Displaying the weather of:' + ' ' + searchBox.value)
+ 
+    console.log('Desplegando la temperatura de:' + ' ' + searchBox.value)
 
 
 })
@@ -107,6 +117,6 @@ searchBtn.addEventListener("click", () => {
 searchBox.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
         checkWeather(searchBox.value);
-        console.log('Displaying the weather of:' + ' ' + searchBox.value)
+        console.log('Desplegando la temperatura de:' + ' ' + searchBox.value)
     }
 })

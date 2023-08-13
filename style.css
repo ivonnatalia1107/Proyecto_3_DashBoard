@@ -6,8 +6,8 @@
 }
 
 body {
-    background: rgb(36,99,108);
-    background: linear-gradient(0deg, rgba(36,99,108,1) 0%, rgba(2,4,17,1) 100%);
+    background: rgb(36, 99, 108);
+    background: linear-gradient(0deg, rgba(36, 99, 108, 1) 0%, rgba(2, 4, 17, 1) 100%);
 
 }
 
@@ -20,6 +20,7 @@ body {
     justify-content: space-around;
 
 }
+
 .logo {
     height: 80px;
     width: 80px;
@@ -27,6 +28,10 @@ body {
 
 .header_class h1 {
     color: white;
+}
+
+.finder input {
+    text-align: center;
 }
 
 .city_name {
@@ -37,7 +42,7 @@ body {
     color: white;
 }
 
-.humidity_wind p{
+.humidity_wind p {
     color: white;
 }
 
@@ -46,7 +51,7 @@ body {
     width: 150px;
 }
 
-.humidity_wind img{
+.humidity_wind img {
     height: 50px;
     width: 50px;
     padding-bottom: 8px;
@@ -102,7 +107,7 @@ body {
 
 }
 
-.container_app .humidity_wind div{
+.container_app .humidity_wind div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -110,12 +115,15 @@ body {
     padding: 10px;
 
 }
+
 .container_chart {
     display: flex;
     border: 1px solid white;
     background-color: rgba(0, 0, 0, 0.027);
-    height: 50%;
-    width: 40%;
+    height: 60%;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
 
 
 }
@@ -126,4 +134,45 @@ body {
     height: 80px;
     width: 100%;
 
+}
+
+@media (max-width: 900px) {
+
+
+    .header_class {
+        flex-direction: column;
+        height: fit-content;
+        justify-content: space-between;
+        padding: 5%;
+    }
+    .finder {
+        text-align: center;
+        padding: 5%;
+    }
+    .showroom_app {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5%;
+        height: 100vh;
+
+    }
+
+    .container_app {
+
+        width: 60%;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 5%;
+    
+    }
+
+    .container_chart {
+
+        height: 60%;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+    
+    
+    }
 }
