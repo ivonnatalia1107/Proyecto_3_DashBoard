@@ -19,9 +19,14 @@ export async function checkWeather(city) {
 
     displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
     console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
+    
     displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
+
     console.log("Humedad:" + " " + data.main.humidity)
     displayWind.innerHTML = "Viento:" + " " + data.wind.speed + " " + "km/hr";
+    
+    
+    
     console.log("Viento:" + " " + data.wind.speed)
     console.log("Desplegando grafico comparativo de:")
     console.log("Temperatura promedio:" + " " + data.main.temp)
@@ -103,7 +108,9 @@ export async function checkWeather(city) {
             
         }
     });
-    searchBox.value = ""
+    searchBox.value = "";
+    document.querySelector(".container_app").style.display = "flex";
+    document.querySelector(".container_chart").style.display = "flex";
 }
 
 searchBtn.addEventListener("click", () => {
