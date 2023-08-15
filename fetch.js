@@ -12,8 +12,6 @@ const displayCountry = document.querySelector('.country');
 export async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json()
-
-
     console.log(data)
 
     if (data.cod === "404" || !city) {
@@ -25,9 +23,6 @@ export async function checkWeather(city) {
     cityName.innerHTML = `${cityNameInput[0].toUpperCase() + cityNameInput.substring(1)}`;
     
     displayCountry.innerHTML = "(" + data.sys.country + ")";
-
-    displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
-    console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
 
     displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
     console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
