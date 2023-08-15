@@ -189,7 +189,8 @@ body {
 
     .container_app {
 
-        width: 60%;
+        width: 80%;
+        height: 50%;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 5%;
@@ -198,7 +199,7 @@ body {
 
     .container_chart {
 
-        height: 60%;
+        height: 50%;
         width: 80%;
         align-items: center;
         justify-content: center;
