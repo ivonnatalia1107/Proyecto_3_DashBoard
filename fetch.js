@@ -7,31 +7,36 @@ const displayTemperature = document.querySelector('.temperature');
 const displayIconWeather = document.querySelector('.icon_weather');
 const displayHumidity = document.querySelector('.humidity');
 const displayWind = document.querySelector('.wind');
-
+const displayCountry = document.querySelector('.country');
 
 export async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json()
 
-    if (data.cod === "404" || !city ) {
+
+    console.log(data)
+
+    if (data.cod === "404" || !city) {
         alert("Por favor, ingresa un parametro valido");
-    } else
+    } else;
+
+    let cityName = document.querySelector('.city_name');
+    let cityNameInput = document.querySelector('input').value;
+    cityName.innerHTML = `${cityNameInput[0].toUpperCase() + cityNameInput.substring(1)}`;
+    
+    displayCountry.innerHTML = "(" + data.sys.country + ")";
 
     displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
     console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
-    
-    displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
 
+    displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
+    console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
+
+    displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
     console.log("Humedad:" + " " + data.main.humidity)
+
     displayWind.innerHTML = "Viento:" + " " + data.wind.speed + " " + "km/hr";
-    
-    
-    
     console.log("Viento:" + " " + data.wind.speed)
-    console.log("Desplegando grafico comparativo de:")
-    console.log("Temperatura promedio:" + " " + data.main.temp)
-    console.log("Temperatura minima:" + " " + data.main.temp_max)
-    console.log("Temperatura maxima:" + " " + data.main.temp_min)
 
     if (data.weather[0].main === "Clouds") {
         displayIconWeather.src = "images/clouds.png";
@@ -49,11 +54,14 @@ export async function checkWeather(city) {
         displayIconWeather.src = "images/mist.png";
     }
 
-    let cityName = document.querySelector('.city_name');
-    let cityNameInput = document.querySelector('input').value
-    cityName.innerHTML = `${cityNameInput[0].toUpperCase() + cityNameInput.substring(1)}`;
+
 
     //GRAFICO DE CHART
+    console.log("Desplegando grafico comparativo de:")
+    console.log("Temperatura promedio:" + " " + data.main.temp)
+    console.log("Temperatura minima:" + " " + data.main.temp_max)
+    console.log("Temperatura maxima:" + " " + data.main.temp_min)
+
     const maxTemp = data.main.temp_max;
     const minTemp = data.main.temp_min;
     const feelsLike = data.main.feels_like;
@@ -97,15 +105,15 @@ export async function checkWeather(city) {
                 },
                 tooltip: {
                     callbacks: {
-                        afterLabel: function(context) {
+                        afterLabel: function (context) {
                             return '°C'
                         }
-                        
+
                     }
 
                 }
             }
-            
+
         }
     });
     searchBox.value = "";
@@ -115,7 +123,7 @@ export async function checkWeather(city) {
 
 searchBtn.addEventListener("click", () => {
     checkWeather(searchBox.value);
- 
+
     console.log('Desplegando la temperatura de:' + ' ' + searchBox.value)
 
 

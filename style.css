@@ -28,33 +28,14 @@ body {
 
 .header_class h1 {
     color: white;
-}
-
-.finder input {
     text-align: center;
 }
 
-.city_name {
-    color: white;
-}
+.finder {
+    display: flex;
+    text-align: center;
+    padding: 5%;
 
-.temperature {
-    color: white;
-}
-
-.humidity_wind p {
-    color: white;
-}
-
-.icon_weather {
-    height: 150px;
-    width: 150px;
-}
-
-.humidity_wind img {
-    height: 50px;
-    width: 50px;
-    padding-bottom: 8px;
 }
 
 .search {
@@ -63,6 +44,9 @@ body {
     border: 0.1em solid hsl(185, 53%, 34%);
     background-color: hsla(0, 0%, 100%, 0.87);
     border-radius: 100vw;
+    text-align: center;
+    margin: 2%;
+
 }
 
 .search_btn {
@@ -73,6 +57,7 @@ body {
     cursor: pointer;
     transition: background-color 250ms;
     color: rgb(230, 230, 230);
+    text-align: center;
 
 }
 
@@ -80,7 +65,7 @@ body {
 .showroom_app {
     display: flex;
     border: 1px solid white;
-    height: 80vh;
+    height: 100vh;
     width: 100%;
     align-items: center;
     justify-content: space-around;
@@ -92,15 +77,41 @@ body {
     flex-direction: column;
     border: 1px solid white;
     height: 80%;
-    width: 40%;
+    width: 35%;
     border-radius: 10px;
     align-items: center;
     justify-content: space-around;
+    margin: 5%;
+    text-align: center;
 
 }
 
+.icon_weather {
+    height: 150px;
+    width: 150px;
+    padding: 1%;
+}
 
-.container_app .humidity_wind {
+
+.city_name {
+    color: white;
+    text-align: center;
+    padding: 1%;
+}
+
+.country {
+    color: white;
+    text-align: center;
+    padding: 1%;
+}
+
+.temperature {
+    color: white;
+    text-align: center;
+    padding: 1%;
+}
+
+.humidity_wind {
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -115,6 +126,21 @@ body {
     padding: 10px;
 
 }
+
+.humidity_wind img {
+    height: 50px;
+    width: 50px;
+    padding-bottom: 8px;
+    padding: 2%;
+}
+
+
+.humidity_wind p {
+    color: white;
+    text-align: center;
+    padding: 2%;
+}
+
 
 .container_chart {
     display: none;
@@ -134,6 +160,7 @@ body {
     border: 1px solid white;
     height: 80px;
     width: 100%;
+    padding: 5%;
 
 }
 
@@ -153,15 +180,12 @@ body {
         justify-content: space-between;
         padding: 5%;
     }
-    .finder {
-        text-align: center;
-        padding: 5%;
-    }
+
     .showroom_app {
         flex-direction: column;
         justify-content: space-between;
         padding: 5%;
-        height: 100vh;
+        height: 150vh;
 
     }
 
