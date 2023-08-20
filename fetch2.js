@@ -20,7 +20,7 @@ export async function checkWeatherForDays(city) {
         const forecast = forecasts[i];
     
         const date = new Date(forecast.dt * 1000);
-        const dayOfWeek = date.toLocaleString('en-US', { weekday: 'short' });
+        const dayOfWeek = date.toLocaleString('es-ES', { weekday: 'short' });
         const temperature = forecast.main.temp;
         const weatherCondition = forecast.weather[0].main; 
         const roundedTemperature = Math.round(temperature);
