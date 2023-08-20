@@ -8,6 +8,8 @@ const displayIconWeather = document.querySelector('.icon_weather');
 const displayHumidity = document.querySelector('.humidity');
 const displayWind = document.querySelector('.wind');
 const displayCountry = document.querySelector('.country');
+let cityName = document.querySelector('.city_name');
+
 
 export async function checkWeather(city) {
     const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
@@ -16,22 +18,24 @@ export async function checkWeather(city) {
 
     if (data.cod === "404" || !city) {
         alert("Por favor, ingresa un parametro valido");
-    } else;
+    } else {
 
-    let cityName = document.querySelector('.city_name');
-    let cityNameInput = document.querySelector('input').value;
-    cityName.innerHTML = `${cityNameInput[0].toUpperCase() + cityNameInput.substring(1)}`;
-    
-    displayCountry.innerHTML = "(" + data.sys.country + ")";
+       // let cityNameInput = document.querySelector('input').value;  borrar si funciona con city 
+       let cityNameInput = city;
+        cityName.innerHTML = `${cityNameInput[0].toUpperCase() + cityNameInput.substring(1)}`;
 
-    displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
-    console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
+        displayCountry.innerHTML = "(" + data.sys.country + ")";
 
-    displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
-    console.log("Humedad:" + " " + data.main.humidity)
+        displayTemperature.innerHTML = "Temperatura:" + " " + Math.round(data.main.temp) + "°C";
+        console.log("Temperatura promedio:" + " " + Math.round(data.main.temp))
 
-    displayWind.innerHTML = "Viento:" + " " + data.wind.speed + " " + "km/hr";
-    console.log("Viento:" + " " + data.wind.speed)
+        displayHumidity.innerHTML = "Humedad:" + " " + data.main.humidity + "%";
+        console.log("Humedad:" + " " + data.main.humidity)
+
+        displayWind.innerHTML = "Viento:" + " " + data.wind.speed + " " + "km/hr";
+        console.log("Viento:" + " " + data.wind.speed)
+
+    }
 
     if (data.weather[0].main === "Clouds") {
         displayIconWeather.src = "images/clouds.png";
