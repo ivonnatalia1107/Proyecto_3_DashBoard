@@ -9,6 +9,7 @@ const displayHumidity = document.querySelector('.humidity');
 const displayWind = document.querySelector('.wind');
 const displayCountry = document.querySelector('.country');
 let cityName = document.querySelector('.city_name');
+let myChart;
 
 
 export async function checkWeather(city) {
@@ -20,7 +21,6 @@ export async function checkWeather(city) {
         alert("Por favor, ingresa un parametro valido");
     } else {
 
-       // let cityNameInput = document.querySelector('input').value;  borrar si funciona con city 
        let cityNameInput = city;
         cityName.innerHTML = `${cityNameInput[0].toUpperCase() + cityNameInput.substring(1)}`;
 
@@ -55,18 +55,21 @@ export async function checkWeather(city) {
 
 
 
-    //GRAFICO DE CHART
+//CHART JS
     console.log("Desplegando grafico comparativo de:")
     console.log("Temperatura promedio:" + " " + data.main.temp)
     console.log("Temperatura minima:" + " " + data.main.temp_max)
     console.log("Temperatura maxima:" + " " + data.main.temp_min)
 
+    if (myChart) {
+        myChart.destroy();
+    }
     const maxTemp = data.main.temp_max;
     const minTemp = data.main.temp_min;
     const feelsLike = data.main.feels_like;
 
     const ctx = document.getElementById('myChart');
-    const myChart = new Chart(ctx, {
+    myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Temperatura Máx', 'Temperatura Mín', 'Sensación Térmica'],
@@ -84,22 +87,22 @@ export async function checkWeather(city) {
                 y: {
                     beginAtZero: true,
                     ticks: {
-                        color: 'white' // Color blanco para los números del eje y
+                        color: 'white'
                     },
                     grid: {
-                        color: 'white' // Color blanco para las líneas del grid del eje y
+                        color: 'white'
                     }
                 },
                 x: {
                     ticks: {
-                        color: 'white' // Color blanco para las etiquetas del eje x
+                        color: 'white'
                     }
                 }
             },
             plugins: {
                 legend: {
                     labels: {
-                        color: 'white' // Color blanco para las etiquetas de la leyenda
+                        color: 'white'
                     }
                 },
                 tooltip: {
